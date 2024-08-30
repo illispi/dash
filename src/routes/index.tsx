@@ -9,7 +9,7 @@ export default function Home() {
 			</h1>
 			<div>
 				<Button
-					class="p-4 text-lg bg-gray-800 flex items-center justify-evenly w-full max-w-64 max-h-12 h-full"
+					class="p-4 text-lg bg-gray-800 flex items-center justify-evenly w-full max-w-64 max-h-12 h-full hover:scale-110 transition-all"
 					as={A}
 					href="https://reddit.com"
 				>
