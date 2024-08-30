@@ -1,25 +1,22 @@
 import { A } from "@solidjs/router";
-import Counter from "~/components/Counter";
+import { Button } from "~/components/ui/button";
 
 export default function Home() {
-  return (
-    <main class="text-center mx-auto text-gray-700 p-4">
-      <h1 class="max-6-xs text-6xl text-sky-700 font-thin uppercase my-16">Hello world!</h1>
-      <Counter />
-      <p class="mt-8">
-        Visit{" "}
-        <a href="https://solidjs.com" target="_blank" class="text-sky-600 hover:underline">
-          solidjs.com
-        </a>{" "}
-        to learn how to build Solid apps.
-      </p>
-      <p class="my-4">
-        <span>Home</span>
-        {" - "}
-        <A href="/about" class="text-sky-600 hover:underline">
-          About Page
-        </A>{" "}
-      </p>
-    </main>
-  );
+	return (
+		<div class="text-center flex-col flex max-w-screen-lg mx-auto text-gray-700 p-4">
+			<h1 class="max-6-xs text-6xl text-sky-700 font-thin uppercase my-16">
+				Dashboard
+			</h1>
+			<div>
+				<Button
+					class="p-4 text-lg bg-gray-800 flex items-center justify-evenly w-full max-w-64 max-h-12 h-full"
+					as={A}
+					href="https://reddit.com"
+				>
+					<img src="https://www.google.com/s2/favicons?domain=reddit.com" />
+					Reddit home
+				</Button>
+			</div>
+		</div>
+	);
 }
