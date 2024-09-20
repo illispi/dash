@@ -28,3 +28,4 @@ gitignore
 Thumbs.db
 
 src/shortcuts
+shortcuts.json
