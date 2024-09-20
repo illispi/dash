@@ -6,9 +6,7 @@ import { readFile } from "fs/promises";
 
 const getShortcuts = cache(async () => {
 	"use server";
-	const data = JSON.parse(
-		await readFile("src/shortcuts/shortcuts.json", "utf8"),
-	);
+	const data = JSON.parse(await readFile("public/shortcuts.json", "utf8"));
 	return data;
 }, "shortcuts");
 
@@ -18,23 +16,22 @@ export const route = {
 
 export default function Home() {
 	const shortcuts = createAsync(() => getShortcuts());
-	// console.log(shortcuts(), "hello");
 	return (
 		<div class="text-center flex-col flex max-w-screen-lg mx-auto text-gray-700 p-4">
-			<h1 class="max-6-xs text-6xl text-sky-700 font-thin uppercase my-16">
-				Dashboard
-			</h1>
 			<div>
 				<Suspense>
 					<Show when={shortcuts()}>
-						<div class="flex flex-col md:flex-row items-start justify-center gap-32">
+						<div class="flex flex-col items-center justify-start md:flex-row md:items-start md:justify-center md:gap-32">
 							<div>
+								<h1 class="max-6-xs text-4xl text-sky-700 font-thin uppercase my-16">
+									Links
+								</h1>
 								<For each={shortcuts().shortcuts}>
 									{(item) => (
 										<Button
 											class="p-6 text-lg bg-gray-800 flex items-center justify-start w-full max-w-64 max-h-12 h-full hover:scale-110 transition-all my-8"
 											as={A}
-											href={item.http}
+											href={`https://${item.http}`}
 										>
 											<img
 												alt="dest"
@@ -46,12 +43,15 @@ export default function Home() {
 								</For>
 							</div>
 							<div>
+								<h1 class="max-6-xs text-4xl text-sky-700 font-thin uppercase my-16">
+									Services
+								</h1>
 								<For each={shortcuts().services}>
 									{(item) => (
 										<Button
 											class="p-6 text-lg bg-gray-800 flex items-center justify-start w-full max-w-64 max-h-12 h-full hover:scale-110 transition-all my-8"
 											as={A}
-											href={item.http}
+											href={`https://${item.http}`}
 										>
 											<img
 												alt="dest"
