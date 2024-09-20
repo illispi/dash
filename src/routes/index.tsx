@@ -25,19 +25,44 @@ export default function Home() {
 				Dashboard
 			</h1>
 			<div>
-				<Button
-					class="p-4 text-lg bg-gray-800 flex items-center justify-evenly w-full max-w-64 max-h-12 h-full hover:scale-110 transition-all"
-					as={A}
-					href="https://reddit.com"
-				>
-					<img src="https://www.google.com/s2/favicons?domain=reddit.com" />
-					Reddit home
-				</Button>
 				<Suspense>
 					<Show when={shortcuts()}>
-						<For each={shortcuts().shortcuts}>
-							{(item) => <div>{item.name}</div>}
-						</For>
+						<div class="flex flex-col md:flex-row items-start justify-center gap-32">
+							<div>
+								<For each={shortcuts().shortcuts}>
+									{(item) => (
+										<Button
+											class="p-6 text-lg bg-gray-800 flex items-center justify-start w-full max-w-64 max-h-12 h-full hover:scale-110 transition-all my-8"
+											as={A}
+											href={item.http}
+										>
+											<img
+												alt="dest"
+												src={`https://www.google.com/s2/favicons?domain=${item.http}`}
+											/>
+											<div class="ml-24">{item.name}</div>
+										</Button>
+									)}
+								</For>
+							</div>
+							<div>
+								<For each={shortcuts().services}>
+									{(item) => (
+										<Button
+											class="p-6 text-lg bg-gray-800 flex items-center justify-start w-full max-w-64 max-h-12 h-full hover:scale-110 transition-all my-8"
+											as={A}
+											href={item.http}
+										>
+											<img
+												alt="dest"
+												src={`https://www.google.com/s2/favicons?domain=${item.http}`}
+											/>
+											<div class="ml-24">{item.name}</div>
+										</Button>
+									)}
+								</For>
+							</div>
+						</div>
 					</Show>
 				</Suspense>
 			</div>
