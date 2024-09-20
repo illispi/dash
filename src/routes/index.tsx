@@ -6,7 +6,7 @@ import { readFile } from "fs/promises";
 
 const getShortcuts = cache(async () => {
 	"use server";
-	const data = JSON.parse(await readFile("public/shortcuts.json", "utf8"));
+	const data = JSON.parse(await readFile("shortcuts.json", "utf8"));
 	return data;
 }, "shortcuts");
 
