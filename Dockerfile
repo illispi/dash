@@ -5,9 +5,9 @@ WORKDIR /app
 
 COPY . .
 
-RUN node install
+RUN npm install
 
-RUN node run build
+RUN npm run build
 
 RUN chmod +x ./entrypoint.sh
 
