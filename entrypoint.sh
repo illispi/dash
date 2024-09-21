@@ -1,3 +1,3 @@
 #!/bin/sh
 
-bun run .output/server/index.mjs
+node .output/server/index.mjs

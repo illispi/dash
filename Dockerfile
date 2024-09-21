@@ -1,13 +1,13 @@
-FROM oven/bun:1 AS build
+FROM node:alpine-22 AS build
 
 
 WORKDIR /app
 
 COPY . .
 
-RUN bun install
+RUN node install
 
-RUN bun run build
+RUN node run build
 
 RUN chmod +x ./entrypoint.sh
 
