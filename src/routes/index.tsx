@@ -14,7 +14,7 @@ const getShortcuts = cache(async () => {
 	} catch (err) {
 		console.error(err);
 	}
-	const data = JSON.parse(await readFile("./public/shortcuts.json", "utf8"));
+	const data = JSON.parse(await readFile("public/shortcuts.json", "utf8"));
 	return data;
 }, "shortcuts");
 
