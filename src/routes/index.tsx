@@ -3,10 +3,18 @@ import { For, Show, Suspense } from "solid-js";
 import { Button } from "~/components/ui/button";
 // biome-ignore lint/style/useNodejsImportProtocol: <explanation>
 import { readFile } from "fs/promises";
+import { readdir } from "node:fs/promises";
 
 const getShortcuts = cache(async () => {
 	"use server";
-	const data = JSON.parse(await readFile("../public/shortcuts.json", "utf8"));
+
+	try {
+		const files = await readdir("./");
+		for (const file of files) console.log(file);
+	} catch (err) {
+		console.error(err);
+	}
+	const data = JSON.parse(await readFile("public/shortcuts.json", "utf8"));
 	return data;
 }, "shortcuts");
 
