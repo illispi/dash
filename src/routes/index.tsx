@@ -28,13 +28,12 @@ export default function Home() {
 		<div class="text-center flex-col flex max-w-screen-lg mx-auto text-gray-700 p-4">
 			<div>
 				<Suspense>
-					<Show when={shortcuts()}>
 						<div class="flex flex-col items-center justify-start md:flex-row md:items-start md:justify-center md:gap-32">
 							<div>
 								<h1 class="max-6-xs text-4xl text-sky-700 font-thin uppercase my-16">
 									Links
 								</h1>
-								<For each={shortcuts().shortcuts}>
+								<For each={shortcuts()?.shortcuts}>
 									{(item) => (
 										<Button
 											class="p-6 text-lg bg-gray-800 flex items-center justify-start w-full max-w-64 max-h-12 h-full hover:scale-110 transition-all my-8"
@@ -54,7 +53,7 @@ export default function Home() {
 								<h1 class="max-6-xs text-4xl text-sky-700 font-thin uppercase my-16">
 									Services
 								</h1>
-								<For each={shortcuts().services}>
+								<For each={shortcuts()?.services}>
 									{(item) => (
 										<Button
 											class="p-6 text-lg bg-gray-800 flex items-center justify-start w-full max-w-64 max-h-12 h-full hover:scale-110 transition-all my-8"
@@ -71,7 +70,6 @@ export default function Home() {
 								</For>
 							</div>
 						</div>
-					</Show>
 				</Suspense>
 			</div>
 		</div>
