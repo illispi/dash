@@ -3,21 +3,26 @@ import fs from "node:fs";
 import { readFile } from "node:fs/promises";
 
 const readAndDecryptFromFile = async () => {
-	const encryptedFile = await readFile("../../public/encrypted.json", "utf8");
-	const { iv, encryptedData } = JSON.parse(encryptedFile);
+	const encryptedData = await readFile("public/encrypted.json", "utf8");
 
-	const decipher = crypto.createDecipheriv(
-		"aes-256-gcm",
-		process.env.KEY as string,
-		Buffer.from(iv, "hex"),
-	);
+	const cipherSplit = encryptedData.split("$$");
+	const text = cipherSplit[0];
+	const iv = Buffer.from(cipherSplit[1], "hex");
+	const tag = Buffer.from(cipherSplit[2], "hex");
+	const key = crypto
+		.createHash("sha256")
+		.update(String(process.env.KEY))
+		.digest();
+
+
+	const decipher = crypto.createDecipheriv("aes-256-gcm", key, iv);
+	decipher.setAuthTag(tag);
 
 	// Decrypt the encrypted data
-	let decrypted = decipher.update(encryptedData, "hex", "utf8");
+	let decrypted = decipher.update(text, "hex", "utf8");
 	decrypted += decipher.final("utf8");
 
 	// fs.writeFileSync("../../public/shortcuts.json", JSON.stringify(decrypted));
-	console.log(decrypted);
 };
 
 readAndDecryptFromFile();

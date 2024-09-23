@@ -5,8 +5,8 @@
     "dev": "vinxi dev --host",
     "build": "vinxi build",
     "start": "vinxi start --host",
-    "encrypt": "bun run ./src/utils/encrypt.ts",
-    "decrypt": "bun run ./src/utils/decrypt.ts"
+    "encrypt": "bun ./src/utils/encrypt.ts",
+    "decrypt": "bun ./src/utils/decrypt.ts"
   },
   "dependencies": {
     "@kobalte/core": "^0.13.6",
