@@ -5,15 +5,10 @@ import { Button } from "~/components/ui/button";
 import { readFile } from "fs/promises";
 import { readdir } from "node:fs/promises";
 
+//TODO add script on startup docker to decrypt json
+
 const getShortcuts = cache(async () => {
 	"use server";
-
-	try {
-		const files = await readdir("./");
-		for (const file of files) console.log(file);
-	} catch (err) {
-		console.error(err);
-	}
 	const data = JSON.parse(await readFile("public/shortcuts.json", "utf8"));
 	return data;
 }, "shortcuts");
