@@ -1,3 +1,3 @@
 #!/bin/sh
 
-bun run .output/server/index.mjs
+bun run decrypt && bun run .output/server/index.mjs
