@@ -78,7 +78,7 @@ const dateConverter = (curDate: Date, dbDate: Date) => {
 	if (ms < 1000 * 60 * 60 * 24) {
 		return `${Math.abs(Math.floor(ms / 1000 / 60))} minutes ago`;
 	}
-	return dbDate.toLocaleDateString("en-GB");
+	return `${Math.abs(Math.floor(ms / 1000 / 60 / 60 / 24))} days ago`;
 };
 
 const BaseButton: Component<{ header: string; data: any; dates: any }> = (
@@ -99,12 +99,13 @@ const BaseButton: Component<{ header: string; data: any; dates: any }> = (
 						as={A}
 						href={`https://${item.http}`}
 					>
-						<div class="flex justify-start items-center">
+						<div class="flex justify-start items-center w-full">
 							<img
 								alt="dest"
 								src={`https://www.google.com/s2/favicons?domain=${item.http}`}
 								width={22}
 								height={22}
+								class="h-6 w-6"
 							/>
 							<div class="ml-24">{item.name}</div>
 						</div>
