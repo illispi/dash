@@ -108,7 +108,7 @@ const BaseButton: Component<{ header: string; data: any; dates: any }> = (
 							/>
 							<div class="ml-24">{item.name}</div>
 						</div>
-						<h3 class="text-sm mt-4 text-left w-full">
+						<h3 class="text-sm mt-4 text-left w-full text-gray-500">
 							{dateConverter(
 								curDate,
 								props.dates.find((e) => e.name === item.name)?.dateClicked,
