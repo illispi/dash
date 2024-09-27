@@ -10,7 +10,7 @@
     "migrate:latest": "bun ./src/utils/migrate.ts",
     "migrate:down": "bun ./src/utils/migrate.ts down",
     "new:migration": "bun ./src/utils/migrationFilename.ts",
-    "sql-types": "bun kysely-codegen --dialect postgres"
+    "sql-types": "bun kysely-codegen --dialect postgres --camel-case"
   },
   "dependencies": {
     "@kobalte/core": "^0.13.6",
