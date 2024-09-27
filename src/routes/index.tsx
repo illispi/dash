@@ -14,7 +14,7 @@ const getShortcuts = cache(async () => {
 }, "shortcuts");
 
 export const route = {
-	load: () => getShortcuts(),
+	preload: () => getShortcuts(),
 };
 
 export default function Home() {
