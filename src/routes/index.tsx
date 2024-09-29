@@ -73,12 +73,16 @@ export const route = {
 };
 
 const dateConverter = (curDate: Date, dbDate: Date) => {
-	const ms = dbDate - curDate;
+	const ms = Math.abs(dbDate - curDate);
 
-	if (ms < 1000 * 60 * 60 * 24) {
-		return `${Math.abs(Math.floor(ms / 1000 / 60))} minutes ago`;
+	if (ms < 1000 * 60 * 60) {
+		return `${Math.floor(ms / 1000 / 60)} minutes ago`;
 	}
-	return `${Math.abs(Math.floor(ms / 1000 / 60 / 60 / 24))} days ago`;
+	if (ms < 1000 * 60 * 60 * 24) {
+		return `${Math.floor(ms / 1000 / 60 / 60)} hours ago`;
+	}
+
+	return `${Math.floor(ms / 1000 / 60 / 60 / 24)} days ago`;
 };
 
 const BaseButton: Component<{ header: string; data: any; dates: any }> = (
