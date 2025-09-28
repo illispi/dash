@@ -1,13 +1,11 @@
+import "dotenv/config";
 import crypto from "node:crypto";
 import fs from "node:fs";
 import { readFile, writeFile } from "node:fs/promises";
-import "dotenv/config";
 
 const readAndDecryptFromFile = async () => {
 	const encryptedData = await readFile("public/encrypted.json", "utf8");
 
-	console.log(encryptedData)
-	console.log(process.env.KEY)
 
 	const cipherSplit = encryptedData.split("$$");
 	const text = cipherSplit[0];

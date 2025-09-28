@@ -1,6 +1,7 @@
 import crypto from "node:crypto";
 import fs from "node:fs";
 import { readFile, writeFile } from "node:fs/promises";
+import "dotenv/config";
 
 const key = crypto
 	.createHash("sha256")
