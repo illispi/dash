@@ -1,3 +1,3 @@
 #!/bin/sh
 
-pnpm run decrypt && pnpm run migrate:latest && pnpm run .output/server/index.mjs
+pnpm run decrypt && pnpm run migrate:latest && node .output/server/index.mjs

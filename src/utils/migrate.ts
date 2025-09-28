@@ -18,7 +18,6 @@ const __dirname = fileURLToPath(new URL("../", import.meta.url));
 async function migrateToLatest(dir: string[]) {
 	console.log(dir);
 
-console.log(process.env.POSTGRES_USERNAME)
 
 	const db = new Kysely<any>({
 		//TODO replace any with Database types
