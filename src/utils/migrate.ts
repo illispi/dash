@@ -28,7 +28,7 @@ console.log(process.env.POSTGRES_USERNAME)
 				host: process.env.PSQL_HOST,
 				database: process.env.POSTGRES_DATABASE,
 				password: process.env.POSTGRES_PASSWORD,
-				user: process.env.POSTGRES_USERNAME,
+				user: process.env.POSTGRES_USER,
 				port: 5432,
 			}),
 		}),
