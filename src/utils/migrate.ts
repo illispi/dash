@@ -9,12 +9,11 @@ import {
 	FileMigrationProvider,
 } from "kysely";
 // import { Database } from "./dbTypes";
-import * as dotenv from "dotenv";
 import { fileURLToPath } from "node:url";
+import 'dotenv/config';
 
 const __dirname = fileURLToPath(new URL("../", import.meta.url));
 
-dotenv.config();
 
 async function migrateToLatest(dir: string[]) {
 	console.log(dir);
