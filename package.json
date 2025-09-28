@@ -5,12 +5,12 @@
     "dev": "vinxi dev --host",
     "build": "vinxi build",
     "start": "vinxi start --host",
-    "encrypt": "bun ./src/utils/encrypt.ts",
-    "decrypt": "bun ./src/utils/decrypt.ts",
-    "migrate:latest": "bun ./src/utils/migrate.ts",
-    "migrate:down": "bun ./src/utils/migrate.ts down",
-    "new:migration": "bun ./src/utils/migrationFilename.ts",
-    "sql-types": "bun kysely-codegen --dialect postgres --camel-case"
+    "encrypt": "tsx ./src/utils/encrypt.ts",
+    "decrypt": "tsx ./src/utils/decrypt.ts",
+    "migrate:latest": "tsx ./src/utils/migrate.ts",
+    "migrate:down": "tsx ./src/utils/migrate.ts down",
+    "new:migration": "tsx ./src/utils/migrationFilename.ts",
+    "sql-types": "tsx kysely-codegen --dialect postgres --camel-case"
   },
   "dependencies": {
     "@kobalte/core": "^0.13.6",
@@ -19,6 +19,7 @@
     "autoprefixer": "^10.4.20",
     "class-variance-authority": "^0.7.0",
     "clsx": "^2.1.1",
+    "dotenv": "^17.2.2",
     "kysely": "^0.27.4",
     "kysely-codegen": "^0.16.8",
     "pg": "^8.13.0",
@@ -27,6 +28,7 @@
     "tailwind-merge": "^2.5.2",
     "tailwindcss": "^3.4.12",
     "tailwindcss-animate": "^1.0.7",
+    "tsx": "^4.20.6",
     "vinxi": "^0.4.3"
   },
   "engines": {

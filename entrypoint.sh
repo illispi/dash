@@ -1,3 +1,3 @@
 #!/bin/sh
 
-bun run decrypt && bun run migrate:latest && bun run .output/server/index.mjs
+pnpm run decrypt && pnpm run migrate:latest && pnpm run .output/server/index.mjs
